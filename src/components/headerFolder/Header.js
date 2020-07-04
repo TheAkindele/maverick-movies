@@ -1,5 +1,5 @@
 import React from 'react'
-import SearchBox from './SearchBox'
+import SearchBox from '../search-folder/SearchBox'
 
 const Header = () => {
     return (
@@ -14,5 +14,6 @@ const Header = () => {
         </div>
     )
 }
+
 
 export default Header
