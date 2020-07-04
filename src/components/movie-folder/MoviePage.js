@@ -32,7 +32,7 @@ const MoviePage = ({ clickedMovies, movieVideo }) => {
                 </div>
             </div>
             <div className="trailer-box">
-                <h1>See Movie Trailer Here</h1>
+                <p>See Movie Trailer Here</p>
                 <div className="video">
                     {
                         movieVideo ?

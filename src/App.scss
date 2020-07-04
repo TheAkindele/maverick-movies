@@ -333,7 +333,7 @@ a{
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             @include mediaQuery() {
                 grid-template-columns: auto auto;
-                border: 1px solid red;
+                //border: 1px solid red;
             }
 
             .card{
@@ -377,6 +377,10 @@ a{
                         background: grey;
                         color: blue;
                         padding: 8px;
+                        @include mediaQuery(){
+                            padding: 3px;
+                            font-size: small;
+                        }
                     }
                     .date{
                         font-size: smaller;
@@ -511,6 +515,7 @@ a{
                 @include mediaQuery(){
                     width: 57%;
                     height: 90%;
+                    @include flex(column, space-around, center);
                 }
 
                 .movie-title{
@@ -543,6 +548,10 @@ a{
                     li{
                         font-size: 1.1rem;
                         padding-right: 15px;
+                        @include mediaQuery(){
+                            font-size: 0.8rem;
+                            padding: 0;
+                        }
 
                         span{
                             color: red;
@@ -587,8 +596,15 @@ a{
             height: 70vh;
         }
 
-        h1{
+        p{
+            font-size: 1.9rem;
+            font-weight: 500;
             padding: 15px 0;
+            @include mediaQuery(){
+                font-size: 1.1rem;
+            font-weight: 300;
+            padding: 10px 0;
+            }
         }
 
         .video{
@@ -701,17 +717,18 @@ a{
 
                     @include mediaQuery(){
                         @include flex(column, flex-start, flex-start);
-                        .title{
+                        .link{
                             font-size: 1.1rem;
-                            font-weight: 200;
+                            font-weight: 100;
                             padding: 0;
+                            color: red;
                         }
                     }
                 }
 
                 .search-overview{
                     @include mediaQuery(){
-                        //font-size: smaller;
+                        font-size: smaller;
                     }
                 }
             }
