@@ -14,7 +14,7 @@ const MoviesPreview = ({ allMoviesArr }) => {
                         allMoviesArr.map(({ ID, routeName, category, content }) => (
                             <div className="the-previews" key={ID}>
                                 <div className="category" >
-                                    <Link to={`/${routeName}`}> {category} </Link>
+                                    <Link to={`/${routeName}`} className='topic'> {category} </Link>
                                 </div>
                                 <div className="previews">
                                     {

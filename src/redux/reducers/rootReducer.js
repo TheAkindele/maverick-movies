@@ -1,8 +1,9 @@
 import { combineReducers } from 'redux'
-import { moviesReducer } from './moviesReducer'
+import { allMoviesReducer, getMovie } from './moviesReducer'
 
 const rootReducer = combineReducers({
-    moviesReducer
+    allMoviesReducer,
+    getMovie
 })
 
 export default rootReducer
