@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { getSearchedMovie } from '../../redux/actions/moviesAction'
 import { withRouter } from 'react-router-dom'
+import { FormStyle } from './SearchStyles'
 
 class SearchBox extends Component {
     state = {
@@ -26,12 +27,17 @@ class SearchBox extends Component {
 
     render() {
         return (
-            <div className='search-box'>
-                <form onSubmit={this.handleSubmit}>
-                    <input type="search" name='search' placeholder='search for a movie or TV show' onChange={this.handleChange} />
-                    <button className='btn-1'>Search</button>
-                </form>
-            </div>
+            <FormStyle>
+                <div className='container search-box'>
+                    <div className="row">
+                        <form className='input-field col s12' onSubmit={this.handleSubmit}>
+                            <input id="first_name" type="text" className="validate white-text " onChange={this.handleChange} />
+                            <label htmlFor="first_name">Search Movie here...</label>
+                            <button className='btn col s12'>Search</button>
+                        </form>
+                    </div>
+                </div>
+            </FormStyle>
         )
     }
 }
