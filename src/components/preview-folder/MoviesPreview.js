@@ -1,57 +1,58 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Link, withRouter } from 'react-router-dom'
 import { stateObjectToArray } from '../../utility-folder/utility'
-import Loader from '../Loader'
+import { PreviewBoxStyle, PreviewStyle, PreviewCategory } from './Preview-style'
+import { Link } from 'react-router-dom'
 
 const MoviesPreview = ({ allMoviesArr }) => {
+    //console.log('movies ', allMoviesArr)
 
     return (
-        <div className='preview-box'>
+        <PreviewBoxStyle>
             {
-                allMoviesArr.length > 0 ?
-                    (
-                        allMoviesArr.map(({ ID, routeName, category, content }) => (
-                            <div className="the-previews" key={ID}>
-                                <div className="category" >
-                                    <Link to={`/${routeName}`} className='topic'> {category} </Link>
-                                </div>
-                                <div className="previews">
-                                    {
-                                        content && content.slice(0, 5).map(({ id, poster_path, title, release_date }) => (
-                                            <Link to={`/${routeName}`} className="card" key={id}>
+                allMoviesArr && allMoviesArr.map(({ ID, routeName, category, content }) => (
+                    <PreviewStyle key={ID}>
 
-                                                <div className="image">
-                                                    <img src={`https://image.tmdb.org/t/p/w185${poster_path}`} alt="poster" />
+                        <div className="container previews">
+                            <PreviewCategory >
+                                {category}
+                            </PreviewCategory>
+                            <div className="row" >
+                                {
+                                    content && content.slice(0, 4).map(({ id, poster_path, title, release_date }) => (
+                                        <div className="col s10 l3 offset-s1">
+                                            <div className="card" key={id}>
+                                                <div className="card-image">
+                                                    <Link to={`/${routeName}`}>
+                                                        <img src={`https://image.tmdb.org/t/p/w154${poster_path}`} alt="poster" />
+                                                    </Link>
                                                 </div>
-                                                <div className="card-foot">
-                                                    <div className="title">
-                                                        {title}
-                                                    </div>
-                                                    <div className="date">{release_date}</div>
+                                                <div className="card-action">
+                                                    <h6 className="title red-text text-accent-4">
+                                                        {title.length >= 18 ? (title.slice(0, 18) + '...') : title}
+                                                    </h6>
+                                                    <p className="date">{release_date}</p>
                                                 </div>
-
-                                            </Link>
-                                        ))
-                                    }
-                                </div>
+                                            </div>
+                                        </div>
+                                    ))
+                                }
                             </div>
-                        ))
-                    )
-                    : (
-                        <Loader />
-                    )
+                        </div>
+                    </PreviewStyle>
+
+                ))
             }
-        </div>
+
+        </PreviewBoxStyle>
     )
 }
 
 const mapStateToProps = ({ allMoviesReducer }) => {
-    //console.log('preview array ', stateObjectToArray(allMoviesReducer))
 
     return {
         allMoviesArr: stateObjectToArray(allMoviesReducer)
     }
 }
 
-export default connect(mapStateToProps)(withRouter(MoviesPreview))
+export default connect(mapStateToProps)(MoviesPreview)
