@@ -19,25 +19,10 @@ export const getFirstItem = (theArray) => {
     else return 'No video Found'
 }
 
-/*
-const state = {
-    popular_movies: {
-        id: 1,
-        category: '',
-        routeName: '',
-        content: []
-    },
-    upcoming_movies: {
-        id: 1,
-        category: '',
-        routeName: '',
-        content: []
-    },
-    top_rated_movies: {
-        id: 1,
-        category: '',
-        routeName: '',
-        content: []
-    }
+export const waitItemId = array => {
+
 }
-*/
+
+export const checkArrayId = array => {
+    return array.map(item => console.log('item Ids ', item.ID))
+}
