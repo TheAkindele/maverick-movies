@@ -11,11 +11,13 @@ import { getMovies } from './redux/actions/moviesAction'
 import SearchResult from './components/search-folder/SearchResult'
 import Loader from './components/Loader';
 
+//import NavbarStyle from './components/nav-Folder/NavbarStyle'
+
 class App extends Component {
 
   componentDidMount() {
     this.props.getMovies()
-    //console.log('app mounted')
+    console.log('app mounted')
   }
 
   render() {
