@@ -44,7 +44,7 @@ const SearchResult = ({ searchedMovie, getSelectedMovie }) => {
 const mapStateToProps = ({ getMovie }) => {
     //console.log('search state ', getMovie.searchedMovie)
     return {
-        searchedMovie: getMovie.searchedMovie ? (getMovie.searchedMovie) : ('Loading.......')
+        searchedMovie: getMovie.searchedMovie
     }
 }
 
