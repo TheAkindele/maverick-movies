@@ -1,24 +1,21 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { FaInstagram, FaTwitter, FaLinkedin } from 'react-icons/fa'
+import { FooterStyle } from './footerStyle'
 
 const Footer = () => {
     return (
-        <div className='footer'>
-            <div className="footer-logo">
-                <Link to='/' className="foot-logo">
-                    maverickMOVIES
-            </Link>
+        <FooterStyle>
+            <div className="container socials">
+                <a href="https://github.com/TheAkindele"><FaInstagram /></a>
+                <a href="https://twitter.com/MaverickHats"><FaTwitter /></a>
+                <a href="https://www.linkedin.com/in/muhyideen-akindele-325722150/"> <FaLinkedin /> </a>
             </div>
-            <div className="phone">
-                <p>08123456789</p>
-                <p>07123456789</p>
-                <p>06012345678</p>
+            <div className="powered ">
+                <a href="https://www.themoviedb.org/?language=en-US">
+                    <p className='black-text'>powered by <span className="flow-text blue-text">TMDB</span></p>
+                </a>
             </div>
-            <div className="contact">
-                <p>Our address</p>
-                <p>1, Aso drive, asokoro, aso rock, Abuja</p>
-            </div>
-        </div>
+        </FooterStyle>
     )
 }
 
