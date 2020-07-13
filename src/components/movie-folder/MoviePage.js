@@ -2,78 +2,74 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { getFirstItem } from '../../utility-folder/utility'
 import ReactPlayer from 'react-player'
-import Loader from '../Loader'
+import { MoviepageStyle, MovieDetailsStyle, MovieTrailerStyle, ExtraDetails } from './moviePageStyle'
 
 const MoviePage = ({ clickedMovies, movieVideo }) => {
-    const { backdrop_path, budget, original_language, title, overview, poster_path, release_date, runtime, status, tagline, revenue, production_companies, vote_average } = clickedMovies
-    const backdrop = `https://image.tmdb.org/t/p/w1280${backdrop_path}`
+    //console.log('clicked movie ', clickedMovies)
+    const { budget, original_language, title, overview, poster_path, release_date, runtime, status, tagline, revenue, vote_average } = clickedMovies
 
     return (
-        <div className='movie-page' >
-            <div className="backdrop" style={{ backgroundImage: `url(${backdrop})` }}>
-                <div className='top'>
-                    <div className="poster">
-                        <img src={`https://image.tmdb.org/t/p/w342${poster_path}`} alt="poster" className='poster-img' />
-                    </div>
-                    <div className="right">
-                        <div className="movie-title">{title}</div>
-                        <ul className="detail-list">
-                            <li className="release">Released: <span>{release_date}</span></li>
-                            <li className="language">Language: <span>{original_language}</span> </li>
-                            <li className="duration">Duration: <span>{runtime}m</span> </li>
-                            <li className="status">status: <span>{status}</span></li>
-                            <li className="votes">Votes: <span>{vote_average}</span></li>
-                        </ul>
-                        <div className="about">
-                            <div className="tagline">{tagline}</div>
-                            <div className="overview">{overview}</div>
+        <MoviepageStyle >
+            <MovieDetailsStyle>
+                <div className="container">
+                    <div className="row">
+                        <h5 className="movie-title white-text  center-align">{title}</h5>
+                        <div className="col s12 l4 offset-l1">
+                            <img src={`https://image.tmdb.org/t/p/w342${poster_path}`} alt="poster" className='image responsive-img' />
+                        </div>
+                        <div className="col s12 l6 offset-l1 details ">
+                            <p className="tagline yellow-text text-darken-3 flow-text ">{tagline}</p>
+                            <p className="overview white-text">{overview}</p>
+
                         </div>
                     </div>
                 </div>
-            </div>
-            <div className="trailer-box">
-                <p>See Movie Trailer Here</p>
-                <div className="video">
-                    {
-                        movieVideo ?
-                            (<div className='player-wrapper'>
-                                <ReactPlayer
-                                    className='react-player'
-                                    url={`https://www.youtube.com/watch?v=${movieVideo.key}`}
-                                    width='100%'
-                                    height='100%'
-                                    controls={true}
-                                />
-                            </div>)
+            </MovieDetailsStyle>
+            <MovieTrailerStyle>
+                <div className="container">
+                    <p className='flow-text center-align'> Movie Trailer </p>
+                    <div className="col s10 offset-s1 video">
+                        {
+                            movieVideo ?
+                                (<div className='player-wrapper'>
+                                    <ReactPlayer
+                                        className='react-player'
+                                        url={`https://www.youtube.com/watch?v=${movieVideo.key}`}
+                                        width='100%'
+                                        height='100%'
+                                        controls={true}
+                                    />
+                                </div>)
 
-                            : <Loader />
-                    }
+                                : (
+                                    <div class="preloader-wrapper small active">
+                                        <div class="spinner-layer spinner-green-only">
+                                            <div class="circle-clipper left">
+                                                <div class="circle"></div>
+                                            </div><div class="gap-patch">
+                                                <div class="circle"></div>
+                                            </div><div class="circle-clipper right">
+                                                <div class="circle"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                )
+                        }
+                    </div>
                 </div>
-            </div>
-            <div className="details">
-                <div className="expenses">
-                    <div className="budget">Budget: ${budget}</div>
-                    <div className="revenue">Revenue: ${revenue}</div>
-                </div>
-                <div className="companies">
-                    <h2>produced by</h2>
-                    {
-                        production_companies && production_companies.map(({ id, logo_path, name, origin_country }) => (
-                            <div className="company" key={id}>
-                                <div className="logo">
-                                    <img src={`https://image.tmdb.org/t/p/w92${logo_path}`} alt="logo" />
-                                </div>
-                                <div className="company-info">
-                                    <div className="the-name"> {name}</div>
-                                    <div className="location"> {origin_country}</div>
-                                </div>
-                            </div>
-                        ))
-                    }
-                </div>
-
-            </div>
-        </div>
+            </MovieTrailerStyle>
+            <ExtraDetails>
+                <ul className="detail-list">
+                    <li className="budget">Budget: <span>${budget}</span></li>
+                    <li className="revenue">Revenue: <span>${revenue}</span></li>
+                    <li className="release">Released: <span>{release_date}</span></li>
+                    <li className="language">Language: <span>{original_language}</span> </li>
+                    <li className="duration">Duration: <span>{runtime}m</span> </li>
+                    <li className="status">status: <span>{status}</span></li>
+                    <li className="votes">Votes: <span>{vote_average}</span></li>
+                </ul>
+            </ExtraDetails>
+        </MoviepageStyle>
     )
 }
 
