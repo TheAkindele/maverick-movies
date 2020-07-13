@@ -1,13 +1,14 @@
 import React from 'react'
-import Header from '../headerFolder/Header'
+import SearchBox from '../search-folder/SearchBox'
 import MoviesPreview from '../preview-folder/MoviesPreview'
+import { HomeStyle } from './HomeStyle'
 
 const Home = () => {
     return (
-        <div className='homepage'>
-            <Header />
+        <HomeStyle>
+            <SearchBox />
             <MoviesPreview />
-        </div>
+        </HomeStyle>
     )
 }
 
