@@ -4,6 +4,7 @@ export const initState = {
     popular_movies: {},
     top_rated_movies: {},
     upcoming_movies: {},
+
 }
 
 export const movieState = {
