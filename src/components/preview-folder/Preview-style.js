@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 export const PreviewBoxStyle = styled.div`
     width: 90%;
+    min-height: 80vh;
     display: flex;
     flex-direction: column;
     justify-content: center;

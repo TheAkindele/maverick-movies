@@ -49,6 +49,7 @@ const MoviesPreview = ({ allMoviesArr }) => {
 }
 
 const mapStateToProps = ({ allMoviesReducer }) => {
+    //console.log('movies= ', allMoviesReducer)
 
     return {
         allMoviesArr: stateObjectToArray(allMoviesReducer)
