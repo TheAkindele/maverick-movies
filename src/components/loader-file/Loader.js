@@ -1,5 +1,4 @@
 import React from 'react'
-import { Spinner } from 'react-bootstrap'
 import { SpinnerStyle, PreLoaderStyle } from './loaderStyle'
 
 export const PreLoader = () => {
@@ -17,15 +16,5 @@ export const PreLoader = () => {
                 </div>
             </div>
         </PreLoaderStyle>
-    )
-}
-
-export const Loader = () => {
-    return (
-        <SpinnerStyle>
-            <Spinner animation="border" role="status">
-                <h3 className="sr-only">Loading...</h3>
-            </Spinner>
-        </SpinnerStyle>
     )
 }
