@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.scss';
+import './App.css';
 import Home from './components/home-Folder/Home';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import NavBar from './components/nav-Folder/NavBar';
@@ -9,15 +9,12 @@ import MoviePage from './components/movie-folder/MoviePage'
 import { connect } from 'react-redux';
 import { getMovies } from './redux/actions/moviesAction'
 import SearchResult from './components/search-folder/SearchResult'
-import Loader from './components/Loader';
-
-//import NavbarStyle from './components/nav-Folder/NavbarStyle'
 
 class App extends Component {
 
   componentDidMount() {
     this.props.getMovies()
-    console.log('app mounted')
+    //console.log('app mounted')
   }
 
   render() {
@@ -27,7 +24,6 @@ class App extends Component {
           <NavBar />
           <Switch>
             <Route exact path='/' component={Home} />
-            <Route exact path='/spin' component={Loader} />
             <Route path='/search/:searchId' component={SearchResult} />
             <Route exact path='/:category' component={CategoryPage} />
             <Route path='/movie/:movieId' component={MoviePage} />
