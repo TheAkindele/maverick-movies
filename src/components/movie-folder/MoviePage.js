@@ -1,8 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { getFirstItem } from '../../utility-folder/utility'
-import ReactPlayer from 'react-player'
-import { MoviepageStyle, MovieDetailsStyle, MovieTrailerStyle, ExtraDetails } from './moviePageStyle'
+import { MoviepageStyle, MovieDetailsStyle, MovieTrailerStyle, ExtraDetails, Trailer } from './moviePageStyle'
+import MovieTrailer from './MovieTrailer'
+import { PreLoader } from '../loader-file/Loader'
 
 const MoviePage = ({ clickedMovies, movieVideo }) => {
     //console.log('clicked movie ', clickedMovies)
@@ -13,7 +14,7 @@ const MoviePage = ({ clickedMovies, movieVideo }) => {
             <MovieDetailsStyle>
                 <div className="container">
                     <div className="row">
-                        <h5 className="movie-title white-text  center-align">{title}</h5>
+                        <h5 className="movie-title deep-purple-text text-darken-4  center-align">{title}</h5>
                         <div className="col s12 l4 offset-l1">
                             <img src={`https://image.tmdb.org/t/p/w342${poster_path}`} alt="poster" className='image responsive-img' />
                         </div>
@@ -28,34 +29,16 @@ const MoviePage = ({ clickedMovies, movieVideo }) => {
             <MovieTrailerStyle>
                 <div className="container">
                     <p className='flow-text center-align'> Movie Trailer </p>
-                    <div className="col s10 offset-s1 video">
+                    <Trailer >
                         {
                             movieVideo ?
-                                (<div className='player-wrapper'>
-                                    <ReactPlayer
-                                        className='react-player'
-                                        url={`https://www.youtube.com/watch?v=${movieVideo.key}`}
-                                        width='100%'
-                                        height='100%'
-                                        controls={true}
-                                    />
-                                </div>)
+                                (<MovieTrailer movieVideo={movieVideo} />)
 
                                 : (
-                                    <div class="preloader-wrapper small active">
-                                        <div class="spinner-layer spinner-green-only">
-                                            <div class="circle-clipper left">
-                                                <div class="circle"></div>
-                                            </div><div class="gap-patch">
-                                                <div class="circle"></div>
-                                            </div><div class="circle-clipper right">
-                                                <div class="circle"></div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <PreLoader />
                                 )
                         }
-                    </div>
+                    </Trailer>
                 </div>
             </MovieTrailerStyle>
             <ExtraDetails>

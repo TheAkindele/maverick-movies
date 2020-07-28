@@ -6,7 +6,6 @@ export const MoviepageStyle = styled.div`
     flex-direction: column;
     
 `
-
 export const MovieDetailsStyle = styled.div`
     width: 100%;
     background-color: #757575;
@@ -16,6 +15,7 @@ export const MovieDetailsStyle = styled.div`
         .row{
             .movie-title{
                 padding: 3vw 0;
+                 
             }
             .col{
 
@@ -32,11 +32,13 @@ export const MovieDetailsStyle = styled.div`
                 .tagline{
                     @media (max-width: 600px) {
                         font-size: small;
+                        padding: 10px 0;
                     }
                 }
                 .overview {
                     @media (max-width: 600px) {
                         font-size: smaller;
+                        padding: 10px 0;
                     }
                 }
             }
@@ -47,36 +49,11 @@ export const MovieDetailsStyle = styled.div`
 export const MovieTrailerStyle = styled.div`
     width: 100%;
     padding: 3vw 0;
-    height: 50vh;
-    @media (max-width: 700px) {
-        min-height: 50vh;
+    
+    @media (max-width: 768px) {
+        
     }
 
-    .container{
-        height: 100%;
-
-        .flow-text{
-            padding: 2vw 0;
-        }
-        .video{
-            height: 90%;
-            padding: 3vw;
-            @media (max-width: 768px) {
-                
-            }
-
-            .player-wrapper {
-                position: relative;
-                height: 100%;
-            
-                .react-player {
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                }
-            }
-        }
-    }
 `
 
 export const ExtraDetails = styled.div`
@@ -102,4 +79,12 @@ export const ExtraDetails = styled.div`
             }
         }
     }
+`
+
+export const Trailer = styled.div`
+    width: 100%;
+    padding: 50px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 `
