@@ -1,5 +1,5 @@
 import React from 'react'
-import { SpinnerStyle, PreLoaderStyle } from './loaderStyle'
+import { PreLoaderStyle } from './loaderStyle'
 
 export const PreLoader = () => {
     return (
