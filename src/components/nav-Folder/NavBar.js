@@ -24,7 +24,7 @@ class NavBar extends Component {
                                     maverick<span className='deep-purple-text text-darken-4 flow-text'>MOVIES</span>
                                 </LogoStyle>
                             </div>
-                            <a href="#" data-target="slide-out" className="sidenav-trigger right"><i className="material-icons">menu</i></a>
+                            <a href="#1" data-target="slide-out" className="sidenav-trigger right"><i className="material-icons">menu</i></a>
                             <ul id="nav-mobile" className="right hide-on-med-and-down">
                                 <li><Link to='/popular_movies' className='content'>Popular</Link></li>
                                 <li><Link to='/top_rated_movies' className='content'>Top-Rated</Link></li>
