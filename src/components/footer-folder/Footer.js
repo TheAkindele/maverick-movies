@@ -1,12 +1,12 @@
 import React from 'react'
-import { FaInstagram, FaTwitter, FaLinkedin } from 'react-icons/fa'
+import { FaGithub, FaTwitter, FaLinkedin } from 'react-icons/fa'
 import { FooterStyle } from './footerStyle'
 
 const Footer = () => {
     return (
         <FooterStyle>
             <div className="container socials">
-                <a href="https://github.com/TheAkindele"><FaInstagram /></a>
+                <a href="https://github.com/TheAkindele"><FaGithub /></a>
                 <a href="https://twitter.com/MaverickHats"><FaTwitter /></a>
                 <a href="https://www.linkedin.com/in/muhyideen-akindele-325722150/"> <FaLinkedin /> </a>
             </div>
