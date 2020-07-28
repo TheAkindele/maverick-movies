@@ -7,6 +7,7 @@ export const FormStyle = styled.div`
 
 export const ResultStyle = styled.div`
     width: 100%;
+    min-height: 90vh;
     background: lightsteelblue;
     display: flex;
     flex-direction: column;
